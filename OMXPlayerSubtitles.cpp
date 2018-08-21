@@ -40,6 +40,7 @@ OMXPlayerSubtitles::OMXPlayerSubtitles() BOOST_NOEXCEPT
   m_delay(),
   m_thread_stopped(),
   m_font_size(),
+  m_font_stroke_width(),
   m_centered(),
   m_ghost_box(),
   m_lines(),
@@ -59,6 +60,7 @@ bool OMXPlayerSubtitles::Open(size_t stream_count,
                               const string& font_path,
                               const string& italic_font_path,
                               float font_size,
+                              float font_stroke_width,
                               bool centered,
                               bool ghost_box,
                               unsigned int lines,
@@ -79,6 +81,7 @@ bool OMXPlayerSubtitles::Open(size_t stream_count,
   m_font_path = font_path;
   m_italic_font_path = italic_font_path;
   m_font_size = font_size;
+  m_font_stroke_width = font_stroke_width;
   m_centered = centered;
   m_ghost_box = ghost_box;
   m_lines = lines;
@@ -118,7 +121,7 @@ void OMXPlayerSubtitles::Process()
 {
   try
   {
-    RenderLoop(m_font_path, m_italic_font_path, m_font_size, m_centered,
+    RenderLoop(m_font_path, m_italic_font_path, m_font_size, m_font_stroke_width, m_centered,
                m_ghost_box, m_lines, m_av_clock);
   }
   catch(Enforce_error& e)
@@ -147,6 +150,7 @@ void OMXPlayerSubtitles::
 RenderLoop(const string& font_path,
            const string& italic_font_path,
            float font_size,
+           float font_stroke_width,
            bool centered,
            bool ghost_box,
            unsigned int lines,
@@ -156,6 +160,7 @@ RenderLoop(const string& font_path,
                             font_path,
                             italic_font_path,
                             font_size,
+                            font_stroke_width,
                             0.01f, 0.06f,
                             centered,
                             0xDD,

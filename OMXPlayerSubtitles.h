@@ -44,6 +44,7 @@ public:
             const std::string& font_path,
             const std::string& italic_font_path,
             float font_size,
+            float font_stroke_width,
             bool centered,
             bool ghost_box,
             unsigned int lines,
@@ -142,6 +143,7 @@ private:
   void RenderLoop(const std::string& font_path,
                   const std::string& italic_font_path,
                   float font_size,
+                  float font_stroke_size,
                   bool centered,
                   bool ghost_box,
                   unsigned int lines,
@@ -168,6 +170,7 @@ private:
   std::string                                   m_font_path;
   std::string                                   m_italic_font_path;
   float                                         m_font_size;
+  float                                         m_font_stroke_width;
   bool                                          m_centered;
   bool                                          m_ghost_box;
   unsigned int                                  m_lines;

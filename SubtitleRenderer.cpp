@@ -265,6 +265,7 @@ SubtitleRenderer(int display, int layer,
                  const std::string& font_path,
                  const std::string& italic_font_path,
                  float font_size,
+                 float font_stroke_width,
                  float margin_left,
                  float margin_bottom,
                  bool centered,
@@ -286,7 +287,8 @@ SubtitleRenderer(int display, int layer,
   centered_(centered),
   white_level_(white_level),
   box_opacity_(box_opacity),
-  font_size_(font_size)
+  font_size_(font_size),
+  font_stroke_width_(font_stroke_width)
 {
   try {
 
@@ -360,10 +362,9 @@ initialize_fonts(const std::string& font_path,
   config_.box_h_padding = config_.line_height/5.0f + 0.5f;
 
 
-  constexpr float border_thickness = 0.044f;
   ENFORCE(!FT_Stroker_New(ft_library_, &ft_stroker_));
   FT_Stroker_Set(ft_stroker_,
-                 config_.line_height*border_thickness*64.0f,
+                 config_.line_height*font_stroke_width_*64.0f,
                  FT_STROKER_LINECAP_ROUND,
                  FT_STROKER_LINEJOIN_ROUND,
                  0);

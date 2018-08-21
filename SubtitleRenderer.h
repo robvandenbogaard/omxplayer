@@ -101,6 +101,7 @@ public:
                    const std::string& font_path,
                    const std::string& italic_font_path,
                    float font_size,
+                   float font_stroke_width,
                    float margin_left,
                    float margin_bottom,
                    bool centered,
@@ -203,6 +204,7 @@ private:
   uint32_t screen_width_;
   uint32_t screen_height_;
   float font_size_;
+  float font_stroke_width_;
   SubtitleConfig config_fullscreen_;
   SubtitleConfig config_;
 };

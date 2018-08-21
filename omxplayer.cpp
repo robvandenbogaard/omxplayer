@@ -90,6 +90,7 @@ std::string       m_dbus_name           = "org.mpris.MediaPlayer2.omxplayer";
 bool              m_asked_for_font      = false;
 bool              m_asked_for_italic_font = false;
 float             m_font_size           = 0.055f;
+float             m_font_stroke_width   = 0.084f;
 bool              m_centered            = false;
 bool              m_ghost_box           = true;
 unsigned int      m_subtitle_lines      = 3;
@@ -533,6 +534,7 @@ int main(int argc, char *argv[])
   const int font_opt        = 0x100;
   const int italic_font_opt = 0x201;
   const int font_size_opt   = 0x101;
+  const int font_stroke_width_opt = 0x110;
   const int align_opt       = 0x102;
   const int no_ghost_box_opt = 0x203;
   const int subtitles_opt   = 0x103;
@@ -601,6 +603,7 @@ int main(int argc, char *argv[])
     { "font",         required_argument,  NULL,          font_opt },
     { "italic-font",  required_argument,  NULL,          italic_font_opt },
     { "font-size",    required_argument,  NULL,          font_size_opt },
+    { "font-stroke-width",  required_argument,  NULL,    font_stroke_width_opt },
     { "align",        required_argument,  NULL,          align_opt },
     { "no-ghost-box", no_argument,        NULL,          no_ghost_box_opt },
     { "subtitles",    required_argument,  NULL,          subtitles_opt },
@@ -779,6 +782,13 @@ int main(int argc, char *argv[])
           const int thousands = atoi(optarg);
           if (thousands > 0)
             m_font_size = thousands*0.001f;
+        }
+        break;
+      case font_stroke_width_opt:
+        {
+          const int thousands = atoi(optarg);
+          if (thousands > 0)
+            m_font_stroke_width = thousands*0.001f;
         }
         break;
       case align_opt:
@@ -1117,6 +1127,7 @@ int main(int argc, char *argv[])
                                 m_font_path,
                                 m_italic_font_path,
                                 m_font_size,
+                                m_font_stroke_width,
                                 m_centered,
                                 m_ghost_box,
                                 m_subtitle_lines,
