@@ -1534,14 +1534,14 @@ int main(int argc, char *argv[])
         }
         break;
       case KeyConfig::ACTION_DECREASE_VOLUME:
-        m_Volume -= 300;
+        m_Volume -= 50;
         m_player_audio.SetVolume(pow(10, m_Volume / 2000.0));
         DISPLAY_TEXT_SHORT(strprintf("Volume: %.2f dB",
           m_Volume / 100.0f));
         printf("Current Volume: %.2fdB\n", m_Volume / 100.0f);
         break;
       case KeyConfig::ACTION_INCREASE_VOLUME:
-        m_Volume += 300;
+        m_Volume += 50;
         m_player_audio.SetVolume(pow(10, m_Volume / 2000.0));
         DISPLAY_TEXT_SHORT(strprintf("Volume: %.2f dB",
           m_Volume / 100.0f));
