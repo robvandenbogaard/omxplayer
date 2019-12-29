@@ -1,6 +1,8 @@
 omxplayer(1) -- Raspberry Pi command line OMX player
 ====================================================
 
+NOTE: This fork is an adapted version for use in a portable cinema setup.
+
 OMXPlayer is a command-line video player for the Raspberry Pi. It can play
 video directly from the command line and **does not require a
 [desktop](https://en.wikipedia.org/wiki/Desktop_environment)**. OMXPlayer
