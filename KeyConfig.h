@@ -47,10 +47,10 @@ class KeyConfig
         ACTION_SET_LAYER = 38,
     };
 
-    #define KEY_LEFT 0x5b44
-    #define KEY_RIGHT 0x5b43
-    #define KEY_UP 0x5b41
-    #define KEY_DOWN 0x5b42
+    #define KEY_LEFT '['
+    #define KEY_RIGHT ']'
+    #define KEY_UP '}'
+    #define KEY_DOWN '{'
     #define KEY_ESC 27
 
     static std::map<int, int> buildDefaultKeymap();
